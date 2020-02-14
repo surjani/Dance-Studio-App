@@ -1,0 +1,29 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkturquoise;">
+  <a class="navbar-brand" href="#">DanceStudio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home-page']">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/student-dashboard']">Dashboard</a>
+      </li>
+    </ul>
+    <!-- <div class="collapse navbar-collapse justify-content-between"> -->
+      <ul class="logout">
+
+        <button class="btn btn-dark" type="submit" (click)="logout()">Log Out</button>
+      </ul>
+    </div>
+  </nav>
+  <div  style="background-color: darkturquoise;">
+    <div class="container" >
+      <marquee width="100%" direction="left" height="20%">
+        Never miss a chance to  DANCE..... 
+    </marquee>
+    </div>
+    </div>

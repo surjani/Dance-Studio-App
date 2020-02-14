@@ -1,0 +1,45 @@
+<app-header></app-header>
+<div class="card">
+
+  <div class="bgimg">
+    <h3>Search Choreographer Here......</h3>
+  <div class="card-body">
+    <div class="box">
+<form (ngSubmit)= "findChoreographerByDance()" class="form-inline" >
+      &nbsp;&nbsp;
+      <div class="dropdown">
+        <!-- <h3 class="card-title">Search Choreographer Here......</h3> -->
+      <p class="card-subtitle mb-2">Select Dance Style</p>
+      <select class="forms-control"  name="danceStyle" [(ngModel)]=danceStyle required>
+          <option  value=null disabled >--Select Dance Style--</option>
+          <option *ngFor="let dance of danceStyles" [value]="dance">{{dance}}</option>
+      </select> &nbsp;&nbsp;
+      <button class="btn btn-secondary btn-sm" type="submit">Search</button>
+    </div>
+    <!-- <button class="btn btn-secondary btn-sm" type="submit">Search</button> -->
+    <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+  </form>
+</div>
+</div>
+</div>
+<br>
+ <div [hidden]="!found"> 
+    <table class="table table-bordered">
+      <thead class="thead-dark">
+      <tr>
+        <th (click)="sortByChorFirstName()">First Name</th>
+        <th>Last Name</th>
+        <th>Contact No.</th>
+        <th>Dance Style</th>
+      </tr>
+      </thead>
+         <tr *ngFor = "let ch of choreographers" >
+          <td>{{ch.fName}}</td>
+          <td>{{ch.lName}}</td>
+          <td>{{ch.contactNo}}</td>
+          <td>{{ch.danceStyle}}</td>
+        </tr>
+    </table>
+ </div>
+ </div>
+    

@@ -1,0 +1,146 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: darkturquoise;">
+  <a class="navbar-brand" href="#">DanceStudio</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/home-page']">Home</a>
+      </li>
+    </ul>
+      </div>
+      </nav>
+<div class="bgimg">
+        <div id="registration-chor">
+            <div class="container">
+              <h2 style="text-align: center;">Choreographer Register Here....</h2> <br><br>
+              
+                <div id="registration-chor-row" class="row justify-content-center align-items-center">
+                    
+                    <div id="registration-chor-column" class="col-md-4 ">
+                      
+                        <div id="registration-chor-box" class="col-md-12">
+                            <!-- <h2 style="text-align: center;">Choreographer Register Here....</h2> -->
+      <div *ngIf="!signupSuccess">
+        <form (ngSubmit)='registerChoreographer()' #addForm="ngForm">            
+            
+          <div class="form-group">
+            <label>Enter Your First Name:</label><br>
+            <input type="text"  class="form-control" [(ngModel)]=choreographer.fName name="firstName" placeholder="Abc" #fName= ngModel pattern="[A-Za-z]{3,}" required>
+            <!-- <span *ngIf="fName.touched && fName.invalid" class="alert-danger"> 
+              Invalid first name or first name cannot be empty</span> -->
+              <div [hidden]="fName.valid || fName.pristine" class="alert alert-danger">
+                <div [hidden]="!fName.hasError('required')">First Name is required</div>
+                <div [hidden]="!fName.hasError('pattern')">Only alphabets are allowed</div>
+              </div>
+              <hr>
+          </div>
+          <div class="form-group">
+            <label>Enter Your Last Name:</label><br>
+            <input type="text"  class="form-control" [(ngModel)]=choreographer.lName name="lastName" placeholder="Abc" #lName= ngModel pattern="[A-Za-z]{3,}" required>
+            <!-- <span *ngIf="lName.touched && lName.invalid" class="alert-danger"> 
+              Invalid last name or last name cannot be empty</span> -->
+              <div [hidden]="lName.valid || lName.pristine" class="alert alert-danger">
+                <div [hidden]="!lName.hasError('required')">Last Name is required</div>
+                <div [hidden]="!lName.hasError('pattern')">Only alphabets are allowed</div>
+              </div>
+              <hr>
+          </div>
+          <div class="form-group">
+            <label>Enter Your Mobile No.:</label><br>
+            <input type="number"  class="form-control" [(ngModel)]=choreographer.contactNo name="Mobile" placeholder="9876543210" #mobile=ngModel pattern="[6-9]{1}[0-9]{9}" minlength="10" maxlength="10" required>
+            <!-- <span *ngIf="mobile.touched && mobile.invalid && (mobile.errors.pattern || mobile.errors.required) " class="alert-danger"> 
+              Invalid mobile number or mobile number cannot be empty</span> -->
+              <div [hidden]="mobile.valid || mobile.pristine" class="alert alert-danger">
+                <div [hidden]="!mobile.hasError('minlength')">It should be of 10 digits</div>
+                <div [hidden]="!mobile.hasError('required')">Mobile number is required</div>
+                <div [hidden]="!mobile.hasError('pattern')">Mobile number should contain only numbers and should be an Indian number</div>
+              </div>
+              <hr>
+          </div>
+
+          <div class="form-group">
+            <label>Enter Your Email Id:</label><br>
+            <input type="email"  class="form-control" [(ngModel)]=choreographer.userName name="EmailId" placeholder="abc@gmail.com" #email= ngModel pattern="[a-z0-9A-Z.]{2,}@[a-z]{3,}.[a-z]{3,}" required>
+            <span *ngIf="email.touched && email.invalid" class="alert-danger"> 
+              Invalid emailId or emailId cannot be empty</span>
+              <hr>
+          </div>
+      
+          <div class="form-group">
+            <label>Enter Your Password: </label><br>
+            <input type="password"  class="form-control" [(ngModel)]=choreographer.password name="Password" placeholder="your password" #password = ngModel pattern="[A-Za-z0-9@_!$]{8,15}" required>
+            <span *ngIf="password.touched && password.invalid " class="alert-danger"> 
+              Invalid password or password cannot be empty</span>
+              <hr>
+          </div>
+          <div class="dropdown">
+            <label>Enter your Dance Style:</label><br>
+            <select class="forms-control"  name="danceStyle" [(ngModel)]=choreographer.danceStyle required>
+                <option  value=null disabled >--Select Dance Style--</option>
+                <option *ngFor="let dance of danceStyles" [value]="dance">{{dance}}</option>
+            </select>
+           <hr>
+          </div>
+          <!-- <div class="form-group">
+            <label>Enter Your Dance Form:</label><br>
+            <input type="text"  class="form-control" [(ngModel)]=choreographer.danceForm name="danceForm" placeholder="Abc" #danceForm= ngModel required>
+            <span *ngIf="danceForm.touched && danceForm.invalid" class="alert-danger"> 
+              Invalid dance form or dance form cannot be empty</span>
+              <hr>
+          </div> -->
+          <div class="dropdown">
+            <label>Time Preference:</label><br>
+            <select class="forms-control"  name="timePref" [(ngModel)]=choreographer.timePref required>
+                <option  value=null disabled >--Select Time Slot--</option>
+                <option *ngFor="let slot of timePref" [value]="slot">{{slot}}</option>
+            </select>
+            <hr>
+        </div>
+          <!-- <div class="form-group">
+            <label>Enter Your Time Preference:</label><br>
+            <input type="text"  class="form-control" [(ngModel)]=choreographer.timePref name="TimePref" placeholder="Abc" #time= ngModel required>
+            <span *ngIf="time.touched && time.invalid" class="alert-danger"> 
+              Invalid time preference or Time preference cannot be empty</span>
+              <hr>
+          </div> -->
+          <div class="dropdown">
+            <label>Place</label><br>
+            <select class="forms-control"  name="place" [(ngModel)]=choreographer.place required>
+                <option  value=null disabled >--Select Place--</option>
+                <option *ngFor="let place of places" [value]="place">{{place}}</option>
+            </select>
+        </div>
+
+          <!-- <div class="form-group">
+            <label>Enter Your Preferred Place:</label><br>
+            <input type="text"  class="form-control" [(ngModel)]=choreographer.place name="Place" placeholder="Abc" #place= ngModel required>
+            <span *ngIf="place.touched && place.invalid" class="alert-danger"> 
+              Invalid place or Place cannot be empty</span>
+              <hr>
+          </div> -->
+          
+           
+        
+        <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div>
+                  
+                  
+          <div class="form-group">
+            <br>
+            <button class="btn btn-success" type="submit" [disabled] ="!addForm.valid">Register Choreographer</button>
+          </div>
+        </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+
+

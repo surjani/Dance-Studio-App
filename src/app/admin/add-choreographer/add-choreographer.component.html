@@ -1,0 +1,46 @@
+<!-- <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                 <a class="navbar-brand"></a> -->
+            <!-- </div>
+            <ul class="nav navbar-nav">
+                <a [routerLink] = "[('/add-chor')]">Choreographer Registration</a>&nbsp;&nbsp;
+                <a [routerLink] = "[('/add-student')]">Student Registration</a>&nbsp;&nbsp;
+            </ul>
+        </div>
+    </nav>  -->
+    <!-- <div class="image"> -->
+      <app-admin-header></app-admin-header>
+    <table class="table table-bordered">
+            <tr>
+            <th>Choreographer Id</th>
+            <th>FName</th> 
+            <th>LName</th>
+            <th>Contact No</th>
+            <th>Status</th>
+            <th>Capacity</th>
+            <th>Dance Style</th>
+            <th>Time Preference</th>
+            <th>Place</th>
+
+            <th colspan="1">Action</th>
+            </tr>
+            <tr *ngFor = "let chor of choreographers | paginate: { itemsPerPage: 4, currentPage: page }">
+              <td>{{chor.choreographerId}}</td>
+              <td>{{chor.fName}}</td>
+              <td>{{chor.lName}}</td>
+              <td>{{chor.contactNo}}</td>
+              <td>{{chor.status}}</td>
+              <td>{{chor.capacity}}</td>
+              <td>{{chor.danceStyle}}</td>
+              <td>{{chor.timePref}}</td>
+              <td>{{chor.place}}</td>
+
+              <td><button class="btn btn-warning" (click)="choreographerApproval(chor.choreographerId)" [disabled]="(chor.status =='Approved')">Approve</button></td>
+
+             
+            </tr>
+          </table>
+          <!-- </div> -->
+          <pagination-controls (pageChange)="page = $event"></pagination-controls>
+          

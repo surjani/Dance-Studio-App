@@ -1,0 +1,30 @@
+<app-admin-header></app-admin-header>
+    <table class="table table-bordered">
+            <tr>
+            <th>Student Id</th>
+            <th>FName</th> 
+            <th>LName</th>
+            <th>UserName</th>
+            <th>Password</th>
+            <th>Contact No</th>
+            <th>Role</th>
+            <th>Status</th>
+
+            <th colspan="1">Action</th>
+            </tr>
+            <tr *ngFor = "let stdnt of students | paginate: { itemsPerPage: 4, currentPage: p }">
+              <td>{{stdnt.studentId}}</td>
+              <td>{{stdnt.fName}}</td>
+              <td>{{stdnt.lName}}</td>
+              <td>{{stdnt.userName}}</td>
+              <td>{{stdnt.password}}</td>
+              <td>{{stdnt.contactNo}}</td>
+              <td>{{stdnt.role}}</td>
+              <td>{{stdnt.status}}</td>
+
+              <td><button class="btn btn-warning" (click)="studentApproval(stdnt.studentId)" [disabled]="(stdnt.status == 'Approved')">Approve</button></td>
+
+             
+            </tr>
+          </table>
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>

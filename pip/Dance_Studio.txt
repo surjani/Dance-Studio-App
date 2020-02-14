@@ -1,0 +1,25 @@
+Dance Studio Web Project Synopsis
+ABSTRACT:
+This project Dance Studio is an online website which provides a platform for all age groups to learn and excel in the most amazing
+and loved field called Dance. It has various famous choreographers available to train the candidates.
+It also provides a safe and fun environment that allows every individual in developing skills. Here candidates are given
+opportunities to take part in various competitions in the studio.
+It has some features like:
+Candidates can register online for their desired dance forms.
+It has two types of service which are at the studio and at home.
+There is a limited number of registrations are done under each choreographer.
+This studio also gives rewards and appreciation for all the winners and also provides a costume for all the candidates.
+It displays calendar blocked (if two or more candidates register for the same choreographer, at the same time for different
+locations).
+The registered candidates will receive confirmation SMS with required details of choreographer on the registered mobile number 
+but the registration gets cancelled if the candidate fails to submit the form within 30 minutes.
+
+Discussion::
+1. there will be prospects who will go through your website like you and me
+2. Users, who will register to your application and may subscribe to a program
+3. Admins : who will approve the user login req, add details of the program, add choreographers etc.
+4. Choreographers themselves to continue 
+ thats should be registration req
+
+** you will need a server to deploy the code
+** a database and an IDE to develop the code

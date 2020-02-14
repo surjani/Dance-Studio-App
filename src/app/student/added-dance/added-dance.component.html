@@ -1,0 +1,30 @@
+<app-header></app-header>
+<div class="bgimg">
+<div >
+    <table class="table table-bordered" >
+      <tr>
+      <th>Dance Id: </th> 
+      <th>Dance Style: </th>  
+      <th>Dance Cost: </th>
+      <th>Time: </th> 
+      <th>Place: </th>
+      <th>Choreographer Email: </th>
+       <th>Choreographer First Name: </th>
+       <th>Choreographer Last Name: </th>
+       <th>Choreographer Contact No.:</th>
+      </tr>  
+      
+      <tr *ngFor = "let dance of dances">
+        <td>{{dance.danceId}}</td>
+        <td>{{dance.danceStyle}}</td>
+        <td>{{dance.danceCost}}</td>
+        <td>{{dance.timePref}}</td>
+        <td>{{dance.place}}</td>
+        <td>{{dance.choreographer.userName}}</td>
+        <td>{{dance.choreographer.fName}}</td>
+        <td>{{dance.choreographer.lName}}</td>
+        <td>{{dance.choreographer.contactNo}}</td>
+      </tr>
+      </table>
+      </div>
+      </div>

@@ -1,0 +1,83 @@
+<app-header></app-header>
+<div id="dance-add">
+  <div class="container">
+    
+      <div id="dance-add-row" class="row justify-content-center align-items-center">
+          
+          <div id="dance-add-column" class="col-md-4 ">
+              
+              <div id="dance-add-box" class="col-md-12">
+                  <h2 style="text-align: center;">Add dance details...</h2>
+<form (ngSubmit)="findChoreographerList()">  
+    <div class="dropdown">
+      <label>Dance Style</label><br>
+      <select class="forms-control"  name="danceStyle" [(ngModel)]=dance.danceStyle required>
+          <option  value=null disabled >--Select Dance Style--</option>
+          <option *ngFor="let dance of danceStyles" [value]="dance">{{dance}}</option>
+      </select>
+      <!-- <input type="text" [(ngModel)]=dance.danceStyle name="danceStyle"><br> -->
+    </div>
+    <div class="dropdown">
+        <label>Time Slot</label><br>
+        <select class="forms-control"  name="timePref" [(ngModel)]=dance.timePref required>
+            <option  value=null disabled >--Select Time Slot--</option>
+            <option *ngFor="let slot of timePref" [value]="slot">{{slot}}</option>
+        </select>
+    </div>
+    <!-- <div class="form-group">
+      <label>Time slot</label><br>
+      <input type="text" [(ngModel)]=dance.timePref name="timePref">
+    </div> -->
+    <div class="dropdown">
+        <label>Place</label><br>
+        <select class="forms-control"  name="place" [(ngModel)]=dance.place required>
+            <option  value=null disabled >--Select Place--</option>
+            <option *ngFor="let place of places" [value]="place">{{place}}</option>
+        </select>
+    </div>
+    
+    <div class="form-group">
+      <label>Student Id:</label><br>
+      <input type="number" [(ngModel)]=student.studentId name="studentId"><br>
+    </div> 
+
+    <div class="form-group">
+      <br><br>
+      <button class="btn btn-success" type="submit">Add Dance</button>
+    </div> 
+    <div>
+      <div [hidden] = "!found">
+    <table class="table table-bordered">
+      <tr>
+      <th>Choreographer Id</th>
+      <th>FName</th> 
+      <th>LName</th>
+      <th>Contact No</th>
+      <th>Status</th>
+      <th>Dance Style</th>
+      
+      <th colspan="1">Action</th>
+      </tr>
+      <tr *ngFor = "let chor of choreographers">
+        <td>{{chor.choreographerId}}</td>
+        <td>{{chor.fName}}</td>
+        <td>{{chor.lName}}</td>
+        <td>{{chor.contactNo}}</td>
+        <td>{{chor.status}}</td>
+        <td>{{chor.danceStyle}}</td>
+        <button class="btn btn-success" (click)= "addDanceDetails(chor)">Select Choreographer</button>
+</tr>
+    </table>
+      </div>
+    <!-- <div class="col-xs-4">
+      <button class="btn btn-primary" (click)="viewStudentCourse()">View My Courses</button>
+    </div> -->
+
+    </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>
+

@@ -1,0 +1,36 @@
+<app-chor-header></app-chor-header>
+<!-- <form (ngSubmit)= "findMyEvents()" class="form-inline" > -->
+<h3>Click here to see all the events..</h3>
+<button class="btn btn-primary" (click)="findMyEvents()">My Events</button>
+<div [hidden]="!found">
+    <table class="table table-bordered" >
+      <tr>
+        <th>Dance Id: </th> 
+        <th>Dance Style: </th>  
+        <th>Dance Cost: </th>
+        <th>Time Preference: </th>
+        <th>Place: </th>  
+        <th>Choreographer Id: </th>
+        <th>Student Id: </th>
+        <th>Student Email: </th>  
+        <th>Student First Name: </th> 
+        <th>Student Last Name: </th>
+        <th>Student Contact No.:</th> 
+      </tr>
+      <tr *ngFor = "let dance of events">
+        <td>{{dance.danceId}}</td>
+        <td>{{dance.danceStyle}}</td>
+        <td>{{dance.danceCost}}</td>
+        <td>{{dance.timePref}}</td>
+        <td>{{dance.place}}</td>
+        <td>{{dance.choreographer.choreographerId}}</td>
+        <td>{{dance.student.studentId}}</td>
+        <td>{{dance.student.userName}}</td>
+        <td>{{dance.student.fName}}</td>
+        <td>{{dance.student.lName}}</td>
+        <td>{{dance.student.contactNo}}</td>
+      </tr>
+      </table>
+      </div>
+      <!-- </form> -->
+
